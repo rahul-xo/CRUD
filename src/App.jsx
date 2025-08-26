@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getPost } from "./Services/GetData";
 import Card from "./Components/Card";
+import AddSection from "./Components/AddSection";
 
 const App = () => {
   const [Data, setData] = useState([]);
@@ -16,9 +17,18 @@ const App = () => {
       console.log(error.message);
     }
   };
-  return <div className=" flex flex-wrap justify-around gap-3.5 py-5">
-    {Data.map((currEle)=> <Card key={currEle.id} currEle={currEle}/>)}
-  </div>;
+  return (
+<div className="flex flex-wrap justify-around gap-3.5 py-5 px-2">
+  
+  {/* Add Section */}
+  <AddSection/>
+
+  {/* Cards Section */}
+  {Data.map((currEle) => (
+    <Card key={currEle.id} currEle={currEle} />
+  ))}
+</div>
+  );
 };
 
 export default App;
