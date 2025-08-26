@@ -18,16 +18,15 @@ const App = () => {
     }
   };
   return (
-<div className="flex flex-wrap justify-around gap-3.5 py-5 px-2">
-  
-  {/* Add Section */}
-  <AddSection/>
+    <ol className="flex flex-wrap justify-around gap-3.5 py-5 px-2">
+      <AddSection />
 
-  {/* Cards Section */}
-  {Data.map((currEle) => (
-    <Card key={currEle.id} currEle={currEle} />
-  ))}
-</div>
+      {/* Add Section */}
+      {/* Cards Section */}
+      {Data.map((currEle,idx) => (
+        <Card key={currEle.id} idx={idx} currEle={currEle} Data={Data} setData={setData}/>
+      ))}
+    </ol>
   );
 };
 
